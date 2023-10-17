@@ -7,20 +7,8 @@ void fillArrayWithRandomIntegers(int *arr, int size, int upper)
 {
     for (int i = 0; i < size; i++)
     {
-        int num = rand();
-        int c = 0;
-        while ((num > upper) || (num < 0))
-        {
-            c += rand();
-            if (num < 0)
-            {
-                num = (rand() % upper + 1);
-            }
-            else
-            {
-                num = num - (pow(2, c));
-            }
-        }
+        int num = (rand() % upper + 1);
+
         arr[i] = num;
         printf("\narr[%d]=%d", i, arr[i]);
     }
