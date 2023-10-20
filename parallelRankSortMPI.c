@@ -64,8 +64,13 @@ int main(int argc, char **argv)
 
     // Size of array
     // Edit to desired number ----------------------------------------------
-    int n = 100000; 
 
+    int n;
+    if (rank == 0){
+        printf("Enter desired size of array: ");
+        scanf("%d", &n);
+    }
+    MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
 
     int interval = n/numProcesses; // Number of elements per process
